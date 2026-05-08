@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+#set -e
 
 LOGFILE="jenkins-install.log"
 
@@ -26,12 +26,14 @@ install_dependancy() {
 
     log "\n Updateting the library ..."
     apt update -y
+
     if command -v java &>/dev/null; then
         version=$(java --version 2>&1)
         echo "$version"
     fi
 
     log "\n Installing openjdk-21.jre..."
+    
     apt install fontconfig openjdk-21-jre -y
 
     log "\n Checking the Installation results.."
@@ -66,7 +68,8 @@ install_jenkins(){
 
     log "Installation Status..."
 
-    systemctl status jenkins
+    #systemctl status jenkins
+    systemctl is-active jenkins
 
 }
 
