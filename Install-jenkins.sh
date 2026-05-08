@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e
+
 LOGFILE="jenkins-install.log"
 
 log() {
@@ -9,7 +10,7 @@ log() {
 
 check_root() {
     if [ "$UID" -ne 0 ]; then
-        echo "You Need to be ROOT user First"
+        log "You Need to be ROOT user First"
         exit 1
     fi
 }
@@ -73,6 +74,7 @@ while true
 do
     log "_______________________________"
     log "1. Install Dependancy"
+    log "2. Install jenkins"
     log "3. Exit"
     log "_______________________________"
     
